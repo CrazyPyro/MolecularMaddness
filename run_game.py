@@ -1,3 +1,4 @@
-import Molecular Maddness.__main__
-if __name__ == "__main__":
-    Molecular Maddness.__main__.main()
+import MolecularMaddness.__main__
+if __name__ in ('__main__', '__android__'):
+	# http://kivy.org/docs/guide/packaging-android.html#packaging-android
+	MolecularMaddness.__main__.main()

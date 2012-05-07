@@ -70,11 +70,11 @@ cmdclass = {}
 PACKAGEDATA = {
     'cmdclass':    cmdclass,
 
-    'package_dir': {'Molecular Maddness': 'Molecular Maddness',
+    'package_dir': {'MolecularMaddness': 'MolecularMaddness',
                    },
-    'packages': ['Molecular Maddness',
+    'packages': ['MolecularMaddness',
                 ],
-    'scripts': ['scripts/Molecular Maddness'],
+    'scripts': ['scripts/MolecularMaddness'],
 }
 
 PACKAGEDATA.update(METADATA)
@@ -113,7 +113,7 @@ def add_files(dest,generator):
             dest.append(filename)
 
 # define what is our data
-_DATA_DIR = os.path.join('Molecular Maddness', 'data')
+_DATA_DIR = os.path.join('MolecularMaddness', 'data')
 data = []
 add_files(data,os.walk(_DATA_DIR))
 
@@ -122,7 +122,7 @@ add_files(data,os.walk(_DATA_DIR))
 
 #data_dirs = [os.path.join(f2.replace(_DATA_DIR, 'data'), '*') for f2 in data]
 data_dirs = [os.path.join(f2.replace(_DATA_DIR, 'data')) for f2 in data]
-PACKAGEDATA['package_data'] = {'Molecular Maddness': data_dirs}
+PACKAGEDATA['package_data'] = {'MolecularMaddness': data_dirs}
 
 
 
@@ -132,7 +132,7 @@ data.extend(glob.glob('*.txt'))
 #data.append('MANIFEST.in')
 # define what is our source
 src = []
-add_files(src,os.walk('Molecular Maddness'))
+add_files(src,os.walk('MolecularMaddness'))
 src.extend(glob.glob('*.py'))
 
 

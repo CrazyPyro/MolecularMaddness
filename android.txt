@@ -1,4 +1,3 @@
-title=Molecular Maddness
-author=yourgameauthor
-api=1
-orientation=landscape
+title=Molecular Madness
+author=CrazyPyro (Neil Funk)
+orientation=portrait
