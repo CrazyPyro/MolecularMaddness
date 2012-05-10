@@ -1,0 +1,116 @@
+#
+# IcarusTouch
+# 
+# Copyright (C) 2012  Cyril Stoller
+# 
+# For comments, suggestions or other messages, contact me at:
+# <cyril.stoller@gmail.com>
+# 
+# This file is part of Deflectouch.
+# 
+# Deflectouch is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# Deflectouch is distributed in the hope that it will be fun,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with Deflectouch.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+
+#:kivy 1.0
+#:import kivy kivy
+#:import win kivy.core.window
+
+# Background description:
+<Background>:
+	source: self.source
+	allow_stretch: True
+	keep_ratio: False
+	size: win.Window.size
+
+# Tank description:
+<Molecule>:
+	image_source: root.image_source
+	size: 96, 140
+	
+	Image:
+		id: 'mol_image'
+		source: root.image_source
+		size: 96, 140
+		pos: root.pos
+
+#		canvas:
+#			BorderImage:
+#	            source: 'graphics/beta/deflector_blue_beta.png'
+#	            border: 10, 10, 10, 10
+#	            size: self.width+10*2, self.height+10*2
+#	            pos: self.x-10, self.y-10
+
+
+# Main widget description:
+<MainWindow>:
+	molecule: molecule
+	background: background
+	
+	pos: self.pos
+	size: win.Window.size
+	
+	Background:
+	    id: background
+		source: 'graphics/background.jpg'
+		
+	Image:
+	    source: 'graphics/overlay.png'
+        allow_stretch: True
+        keep_ratio: False
+        size: win.Window.size
+	
+	Image:
+        source: 'graphics/rails.png'
+        center_x: win.Window.width/20
+        size_hint: None, None
+        height: win.Window.height
+	
+	Molecule:
+		id: molecule
+		image_source: 'graphics/tank.png'
+		center: win.Window.width/20, win.Window.center[1]
+	
+	BoxLayout:
+	    orientation: 'vertical'
+	    spacing: 15
+	    padding: 20
+	    
+	    size: win.Window.width/8, win.Window.height/2.0
+	    right: win.Window.width
+	    top: win.Window.height
+	
+		Button:
+			text: 'Fire'
+			bold: True
+			font_size: 17
+			background_normal: 'graphics/button_normal.png'
+			background_down: 'graphics/button_down.png'
+			on_press: root.button_pressed()
+		
+		Label:
+		        text: 'Level: '
+		        bold: True
+	        	font_size: 18
+			size_hint: 1, 0.5
+	        	color: 1, 1, 1, 1
+	    
+		Button:
+            		text: 'Exit'
+            		bold: True
+            		font_size: 17
+            		background_normal: 'graphics/button_normal.png'
+            		background_down: 'graphics/button_down.png'
+            		on_press: root.app.stop()
+
